@@ -2,27 +2,21 @@
 
 namespace Tests\Feature;
 
+use Carbon\Carbon;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
-use App\Models\book;
+use App\Models\Book;
 use Tests\TestCase;
 
 class DeleteTest extends TestCase
 {
-    /**
-     * A basic feature test example.
-     *
-     * @return void
-     */
+    use RefreshDatabase;
+
     public function test_delete_book()
     {
-        {
+        $book = $this->createBook();
+        $this->deleteJson(route('books.destroy', $book->id))->assertSuccessful();
 
-            $books = Book::all()->last();
-            $this->json('DELETE', 'books/delete/'. $books->id)
-                ->assertStatus(201)
-                ->assertSuccessful()
-                ->assertJson(["status" => 'success']);
-        }
+        $this->assertDatabaseMissing('books', ['name' => $book->name]);
     }
 }

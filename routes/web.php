@@ -17,10 +17,10 @@ Route::get('/', function () {
     return view('books');
 });
 
-Route::get('books','App\Http\Controllers\BooksController@getAllBooks');
-Route::post('booksPost','App\Http\Controllers\BooksController@bookCreate');
-Route::get('books/{id}','App\Http\Controllers\BooksController@getBookById');
-Route::delete('books/delete/{id}','App\Http\Controllers\BooksController@getbyIdDelete');
-Route::PUT('books/update/{id}','App\Http\Controllers\BooksController@booksUpdate');
+Route::get('books','App\Http\Controllers\BooksController@getAllBooks')->name('books.index');
+Route::post('booksPost','App\Http\Controllers\BooksController@bookCreate')->name('books.store');
+Route::get('books/{id}','App\Http\Controllers\BooksController@getBookById')->name('books.show');
+Route::delete('books/delete/{id}','App\Http\Controllers\BooksController@getbyIdDelete')->name('books.destroy');
+Route::PUT('books/update/{id}','App\Http\Controllers\BooksController@booksUpdate')->name('books.update');
 
 
