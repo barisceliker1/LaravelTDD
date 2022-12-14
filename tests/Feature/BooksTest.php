@@ -2,19 +2,14 @@
 
 namespace Tests\Feature;
 
-use App\Models\books;
+use App\Models\book;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 
 class BooksTest extends TestCase
 {
-    /**
-     * A basic feature test example.
-     *
-     * @return void
-     */
-    public function test_example()
+    public function test_books_index()
     {
         {
             $response = $this->get('books')
@@ -26,18 +21,10 @@ class BooksTest extends TestCase
                             "title",
                             "name",
                             "price",
-                            "whenWrited",
-
+                            "whenWritten",
                         ],
                     ],
                 );
         }
     }
-    /**
-     * A basic feature test example.
-     *
-     * @return void
-     */
-
-
 }

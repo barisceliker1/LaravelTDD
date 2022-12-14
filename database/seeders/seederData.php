@@ -19,13 +19,13 @@ class seederData extends Seeder
             'title' => 'underworld',
             'name' => 'life of underworld',
             'price' => 255,
-            'whenWrited' => Carbon::now(),
+            'whenWritten' => Carbon::now(),
         ],
             [
                 'title' => 'underworld2',
                 'name' => 'life of underworld2',
                 'price' => 300,
-                'whenWrited' => Carbon::now(),
+                'whenWritten' => Carbon::now(),
             ]]
         );
     }

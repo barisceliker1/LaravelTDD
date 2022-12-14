@@ -5,36 +5,27 @@ namespace Tests\Feature;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
-use App\Models\books;
+use App\Models\book;
 
 
 class UpdateTest extends TestCase
 {
-    /**
-     * A basic feature test example.
-     *
-     * @return void
-     */
-    public function test_example()
+    public function test_update_book_data()
     {
-        $books = books::all()->where('id',2);
-        $Booksid=$books[0]->id;
+        $books = Book::all()->where('id', 2);
+        $Booksid = $books[0]->id;
         $DatasOFBooks = array(
-            'id'=>$Booksid,
+            'id' => $Booksid,
             'name' => 'olmadı',
-            'title' =>'ssa',
-            'price' =>  255,
-            'whenWrited'=>'2012-11-07"'
+            'title' => 'ssa',
+            'price' => 255,
+            'whenWritten' => '2012-11-07"'
         );
 
 
-
-        $this->json('PUT', 'books/update/'.$books[0]->id, $DatasOFBooks)
+        $this->json('PUT', 'books/update/' . $books[0]->id, $DatasOFBooks)
             ->assertStatus(201)
             ->assertJson(["status" => 'success']);
-
-
-
-}
+    }
 }
 

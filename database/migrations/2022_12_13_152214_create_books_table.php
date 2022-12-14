@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class books extends Migration
+class CreateBooksTable extends Migration
 {
     /**
      * Run the migrations.
@@ -18,7 +18,7 @@ class books extends Migration
             $table->string('title');
             $table->string('name');
             $table->integer('price');
-            $table->date('whenWrited');
+            $table->date('whenWritten');
             $table->timestamps();
 
         });
@@ -31,6 +31,6 @@ class books extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('books');
     }
 }

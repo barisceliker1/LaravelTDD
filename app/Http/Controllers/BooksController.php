@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Libraries\CommonHelper;
 use Validator;
-use App\Models\books;
+use App\Models\book;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
@@ -13,54 +13,44 @@ use Carbon\Carbon;
 
 class BooksController extends Controller
 {
-    public function getAllbook() {
-        $books = books::all();
-        return $books;
+    public function getAllBooks()
+    {
+        return Book::all();
     }
-    public function getbookbyId(int $bookId) {
 
-        $books = books::all()->find($bookId);
-        return $books;
+    public function getBookById(int $bookId)
+    {
+        return Book::all()->find($bookId);
     }
-    public function BooksUpdate(Request $request, int $bookId) {
 
+    public function booksUpdate(Request $request, int $bookId)
+    {
         // Getting values from the blade template form
-        $books = books::all()->find($bookId);
+        $books = Book::all()->find($bookId);
         $books->update([
             'name' => $request->get('name'),
             'title' => $request->get('title'),
             'price' => $request->get('price'),
-            'whenWrited' => $request->get('whenWrited')
+            'whenWritten' => $request->get('whenWritten')
         ]);
-        return response()->json(['status'=>'success'], 201);
-
-
-
+        return response()->json(['status' => 'success'], 201);
     }
-    public function PostCreate(Request $request) {
 
-        $add=books::create($request->all());
-    if ($add) {
-        return response()->json(['status'=>'success'], 201);
-    }
-    else {
-        return response()->json(['status'=>'error'], 400);
-    }
-    }
-    public function getbyIdDelete(int $bookId) {
-
-        $booksDelete = books::all()->where('id',$bookId)->each->delete();
-
-        if ($booksDelete) {
-            return response()->json(['status'=>'success'], 201);
+    public function bookCreate(Request $request)
+    {
+        $add = Book::create($request->all());
+        if (!$add) {
+            return response()->json(['status' => 'error'], 400);
         }
-        else {
-            return response()->json(['status'=>'error'], 400);
-        }
+        return response()->json(['status' => 'success'], 201);
     }
 
-
-
-
-
+    public function getbyIdDelete(int $bookId)
+    {
+        $booksDelete = Book::all()->where('id', $bookId)->each->delete();
+        if (!$booksDelete) {
+            return response()->json(['status' => 'error'], 400);
+        }
+        return response()->json(['status' => 'success'], 201);
+    }
 }
