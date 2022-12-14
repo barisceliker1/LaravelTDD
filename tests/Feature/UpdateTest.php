@@ -20,8 +20,8 @@ class UpdateTest extends TestCase
         $books = books::all()->where('id',2);
         $Booksid=$books[0]->id;
         $DatasOFBooks = array(
-            'id'=>2,
-            'name' => 'updateOldu',
+            'id'=>$Booksid,
+            'name' => 'olmadı',
             'title' =>'ssa',
             'price' =>  255,
             'whenWrited'=>'2012-11-07"'
@@ -29,8 +29,9 @@ class UpdateTest extends TestCase
 
 
 
-        $this->json('PUT', 'books/update/2', $DatasOFBooks)
-            ->assertStatus(201);
+        $this->json('PUT', 'books/update/'.$books[0]->id, $DatasOFBooks)
+            ->assertStatus(201)
+            ->assertJson(["status" => 'success']);
 
 
 
