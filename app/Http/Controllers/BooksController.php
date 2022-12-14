@@ -14,7 +14,6 @@ use Carbon\Carbon;
 class BooksController extends Controller
 {
     public function getAllbook() {
-
         $books = books::all();
         return $books;
     }
@@ -22,6 +21,21 @@ class BooksController extends Controller
 
         $books = books::all()->find($bookId);
         return $books;
+    }
+    public function BooksUpdate(Request $request, int $bookId) {
+
+        // Getting values from the blade template form
+        $books = books::all()->find($bookId);
+        $books->update([
+            'name' => $request->get('name'),
+            'title' => $request->get('title'),
+            'price' => $request->get('price'),
+            'whenWrited' => $request->get('whenWrited')
+        ]);
+        return response()->json(['status'=>'success'], 201);
+
+
+
     }
     public function PostCreate(Request $request) {
 

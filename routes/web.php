@@ -14,45 +14,13 @@ use App\Http\Controllers\BooksController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('books');
 });
 
 Route::get('books','App\Http\Controllers\BooksController@getAllbook');
 Route::post('booksPost','App\Http\Controllers\BooksController@PostCreate');
 Route::get('books/{id}','App\Http\Controllers\BooksController@getbookbyId');
 Route::delete('books/delete/{id}','App\Http\Controllers\BooksController@getbyIdDelete');
+Route::PUT('books/update/{id}','App\Http\Controllers\BooksController@BooksUpdate');
 
-Route::get('books','App\Http\Controllers\BooksController@getAllbook');
-Route::post('booksPost','App\Http\Controllers\BooksController@PostCreate');
-Route::get('books/{id}','App\Http\Controllers\BooksController@getbookbyId');
-Route::delete('books/delete/{id}','App\Http\Controllers\BooksController@getbyIdDelete');
 
-Route::get('books','App\Http\Controllers\BooksController@getAllbook');
-Route::post('booksPost','App\Http\Controllers\BooksController@PostCreate');
-Route::get('books/{id}','App\Http\Controllers\BooksController@getbookbyId');
-Route::delete('books/delete/{id}','App\Http\Controllers\BooksController@getbyIdDelete');
-
-Route::get('books','App\Http\Controllers\BooksController@getAllbook');
-Route::post('booksPost','App\Http\Controllers\BooksController@PostCreate');
-Route::get('books/{id}','App\Http\Controllers\BooksController@getbookbyId');
-Route::delete('books/delete/{id}','App\Http\Controllers\BooksController@getbyIdDelete');
-
-Route::get('books','App\Http\Controllers\BooksController@getAllbook');
-Route::post('booksPost','App\Http\Controllers\BooksController@PostCreate');
-Route::get('books/{id}','App\Http\Controllers\BooksController@getbookbyId');
-Route::delete('books/delete/{id}','App\Http\Controllers\BooksController@getbyIdDelete');
-
-Route::get('books','App\Http\Controllers\BooksController@getAllbook');
-Route::post('booksPost','App\Http\Controllers\BooksController@PostCreate');
-Route::get('books/{id}','App\Http\Controllers\BooksController@getbookbyId');
-Route::delete('books/delete/{id}','App\Http\Controllers\BooksController@getbyIdDelete');
-
-Route::get('books','App\Http\Controllers\BooksController@getAllbook');
-Route::post('booksPost','App\Http\Controllers\BooksController@PostCreate');
-Route::get('books/{id}','App\Http\Controllers\BooksController@getbookbyId');
-Route::delete('books/delete/{id}','App\Http\Controllers\BooksController@getbyIdDelete');
-
-Route::get('books','App\Http\Controllers\BooksController@getAllbook');
-Route::post('booksPost','App\Http\Controllers\BooksController@PostCreate');
-Route::get('books/{id}','App\Http\Controllers\BooksController@getbookbyId');
-Route::delete('books/delete/{id}','App\Http\Controllers\BooksController@getbyIdDelete');
