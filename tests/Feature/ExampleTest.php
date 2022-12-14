@@ -4,18 +4,27 @@ namespace Tests\Feature;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
+use Illuminate\Foundation\Testing\DatabaseMigrations;
 
 class ExampleTest extends TestCase
 {
-    /**
-     * A basic test example.
-     *
-     * @return void
-     */
     public function test_example()
     {
-        $response = $this->get('/');
+        {
+            $response = $this->get('books')
+                ->assertStatus(200)
+                ->assertJsonStructure(
+                    [
+                         [
+                                "id",
+                                "title",
+                                "name",
+                                "price",
+                                "whenWrited",
 
-        $response->assertStatus(200);
+                            ],
+                        ],
+                );
+        }
     }
 }

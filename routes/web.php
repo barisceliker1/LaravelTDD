@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\BooksController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,3 +16,43 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('books','App\Http\Controllers\BooksController@getAllbook');
+Route::post('booksPost','App\Http\Controllers\BooksController@PostCreate');
+Route::get('books/{id}','App\Http\Controllers\BooksController@getbookbyId');
+Route::delete('books/delete/{id}','App\Http\Controllers\BooksController@getbyIdDelete');
+
+Route::get('books','App\Http\Controllers\BooksController@getAllbook');
+Route::post('booksPost','App\Http\Controllers\BooksController@PostCreate');
+Route::get('books/{id}','App\Http\Controllers\BooksController@getbookbyId');
+Route::delete('books/delete/{id}','App\Http\Controllers\BooksController@getbyIdDelete');
+
+Route::get('books','App\Http\Controllers\BooksController@getAllbook');
+Route::post('booksPost','App\Http\Controllers\BooksController@PostCreate');
+Route::get('books/{id}','App\Http\Controllers\BooksController@getbookbyId');
+Route::delete('books/delete/{id}','App\Http\Controllers\BooksController@getbyIdDelete');
+
+Route::get('books','App\Http\Controllers\BooksController@getAllbook');
+Route::post('booksPost','App\Http\Controllers\BooksController@PostCreate');
+Route::get('books/{id}','App\Http\Controllers\BooksController@getbookbyId');
+Route::delete('books/delete/{id}','App\Http\Controllers\BooksController@getbyIdDelete');
+
+Route::get('books','App\Http\Controllers\BooksController@getAllbook');
+Route::post('booksPost','App\Http\Controllers\BooksController@PostCreate');
+Route::get('books/{id}','App\Http\Controllers\BooksController@getbookbyId');
+Route::delete('books/delete/{id}','App\Http\Controllers\BooksController@getbyIdDelete');
+
+Route::get('books','App\Http\Controllers\BooksController@getAllbook');
+Route::post('booksPost','App\Http\Controllers\BooksController@PostCreate');
+Route::get('books/{id}','App\Http\Controllers\BooksController@getbookbyId');
+Route::delete('books/delete/{id}','App\Http\Controllers\BooksController@getbyIdDelete');
+
+Route::get('books','App\Http\Controllers\BooksController@getAllbook');
+Route::post('booksPost','App\Http\Controllers\BooksController@PostCreate');
+Route::get('books/{id}','App\Http\Controllers\BooksController@getbookbyId');
+Route::delete('books/delete/{id}','App\Http\Controllers\BooksController@getbyIdDelete');
+
+Route::get('books','App\Http\Controllers\BooksController@getAllbook');
+Route::post('booksPost','App\Http\Controllers\BooksController@PostCreate');
+Route::get('books/{id}','App\Http\Controllers\BooksController@getbookbyId');
+Route::delete('books/delete/{id}','App\Http\Controllers\BooksController@getbyIdDelete');
