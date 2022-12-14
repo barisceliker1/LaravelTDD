@@ -17,14 +17,8 @@ class DeleteTest extends TestCase
     public function test_example()
     {
         {
-            $books = books::create([
-                'name' => 'Good life of student',
-                'title' => 'hard life of student.',
-                'price' => 255,
-                'whenWrited'=>'2012-11-07"'
-            ]);
-          echo "book name : ".$books->name. "created";
 
+            $books = books::all()->last();
             $this->json('DELETE', 'books/delete/'. $books->id)
                 ->assertStatus(201)
                 ->assertSuccessful()
