@@ -13,19 +13,19 @@ class UpdateTest extends TestCase
     public function test_update_book_data()
     {
         $books = Book::all()->where('id', 2);
-        $Booksid = $books[0]->id;
+        $Booksid = $books[1]->id;
         $DatasOFBooks = array(
             'id' => $Booksid,
-            'name' => 'olmadı',
-            'title' => 'ssa',
+            'name' => 'updatedName2',
+            'title' => 'updatedTitl2e2',
             'price' => 255,
             'whenWritten' => '2012-11-07"'
         );
 
 
-        $this->json('PUT', 'books/update/' . $books[0]->id, $DatasOFBooks)
-            ->assertStatus(201)
-            ->assertJson(["status" => 'success']);
+        $response=$this->json('PUT', 'books/update/' . $books[1]->id, $DatasOFBooks);
+        $this->withoutExceptionHandling();
+        $response->assertStatus( 201 );
     }
 }
 

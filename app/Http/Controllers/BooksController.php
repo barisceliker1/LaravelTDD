@@ -26,6 +26,12 @@ class BooksController extends Controller
     public function booksUpdate(Request $request, int $bookId)
     {
         // Getting values from the blade template form
+        $request->validate([
+            'name'=>'required|unique:books|max:255',
+            'title'=>'required|unique:books|max:255',
+            'price'=>'required|integer'
+
+        ]);
         $books = Book::all()->find($bookId);
         $books->update([
             'name' => $request->get('name'),
@@ -38,11 +44,18 @@ class BooksController extends Controller
 
     public function bookCreate(Request $request)
     {
+        $request->validate([
+            'name'=>'required|unique:books|max:255',
+            'title'=>'required|unique:books|max:255',
+            'price'=>'required|integer'
+
+        ]);
         $add = Book::create($request->all());
+
         if (!$add) {
             return response()->json(['status' => 'error'], 400);
         }
-        return response()->json(['status' => 'success'], 201);
+        return response()->json(['status' => 'success'], 500);
     }
 
     public function getbyIdDelete(int $bookId)
