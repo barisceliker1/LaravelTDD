@@ -11,19 +11,10 @@ class BooksTest extends TestCase
 {
     public function test_books_index()
     {
-        $this->createBook();
-        $response = $this->get('books')
-            ->assertStatus(200)
-            ->assertJsonStructure(
-                [
-                    [
-                        "id",
-                        "title",
-                        "name",
-                        "price",
-                        "whenWritten",
-                    ],
-                ],
-            );
+
+        $response = $this->getJson(route('books.index'));
+
+        $response->assertOk();
+
     }
 }

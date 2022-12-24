@@ -16,17 +16,17 @@ class PostTest extends TestCase
      */
     public function test_create_new_book()
     {
-        $rules = [
-            'name' => 'geldi',
-            'title' => 'ssa',
-            'price' => 255,
+        $rule = [
+            'name' => 'geldi132253',
+            'title' => 'ssa1',
+            'price' => '255',
             'whenWritten' => '2012-11-07'
         ];
 
-        $this->postJson(route('books.store'), $rules)
-            ->assertStatus(201)
-            ->assertSuccessful()
-            ->assertJson(["status" => 'success']);
+        $response=$this->postJson(route('books.store'), $rule);
+        $this->withoutExceptionHandling();
+        $response->assertStatus( 500 );
+
     }
 
 }
