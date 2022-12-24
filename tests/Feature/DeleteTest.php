@@ -10,13 +10,24 @@ use Tests\TestCase;
 
 class DeleteTest extends TestCase
 {
-    use RefreshDatabase;
 
     public function test_delete_book()
     {
-        $book = $this->createBook();
-        $this->deleteJson(route('books.destroy', $book->id))->assertSuccessful();
+        $book = Book::count();
 
-        $this->assertDatabaseMissing('books', ['name' => $book->name]);
+        if ($book>0){
+            $findId=Book::all()->last()->id;
+            $response =$this->deleteJson(route('books.destroy',$findId));
+            $this->withoutExceptionHandling();
+            $response->assertStatus( 201 );
+        }elseif($book==0){
+            $findId=Book::all()->last()->id;
+            $response =$this->deleteJson(route('books/delete/'.$findId));
+            $this->withoutExceptionHandling();
+            $response->assertStatus( 201 );
+        }
+
+
+
     }
 }

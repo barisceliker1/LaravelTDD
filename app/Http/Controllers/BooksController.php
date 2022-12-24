@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use http\Cookie;
 use Illuminate\Http\Request;
 use App\Libraries\CommonHelper;
 use Validator;
