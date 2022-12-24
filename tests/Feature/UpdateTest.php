@@ -12,9 +12,9 @@ class UpdateTest extends TestCase
 {
     public function test_update_book_data()
     {
-        $books = Book::all()->where('id', 4);
+        $book = $this->createBook();
         $DatasOFBooks = array(
-            'id' => $books,
+            'id' => $book->id,
             'name' => 'updatedName2',
             'title' => 'updatedTitl2e2',
             'price' => 255,
@@ -22,9 +22,9 @@ class UpdateTest extends TestCase
         );
 
 
-        $response=$this->json('PUT', 'books/update/' . $books[0]->id, $DatasOFBooks);
+        $response = $this->json('PUT', 'books/update/' . $book->id, $DatasOFBooks);
         $this->withoutExceptionHandling();
-        $response->assertStatus( 201 );
+        $response->assertStatus(201);
     }
 }
 
